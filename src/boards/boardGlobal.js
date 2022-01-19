@@ -75,7 +75,7 @@ const Ship = () => {
 
 
 const clicktest = () => {
-    console.log("the function clicktest!");
+    console.log("cardProps 1 and 2 changed!");
     cardProps1.text = 'neuer text';
     cardProps1.x = 0;
 

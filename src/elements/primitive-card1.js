@@ -2,7 +2,8 @@ import React from "react";
 import {
   PixiContainer,
   PixiSprite,
-  CursorType
+  CursorType,
+  PixiHtmlContainer
 } from "pixi-reactive";
 //not worked: CornerStyle
 
@@ -32,16 +33,18 @@ class PrimitiveCard extends React.Component {
     console.log('primitive-card1 updated!');
   }
 
-  
+
   render() {
     return (
       <>
  
-      <PixiContainer >
+      <PixiContainer x={this.props.cardProps.x} y={this.props.cardProps.y} >
       <PixiSprite texture={'ship'} alignY={0.5} alignX={0.5}
                 cursor={CursorType.Help}
                 buttonMode={true} interactive={true} onClick={printProps(this.props.cardProps)} />
-
+        <PixiHtmlContainer  >
+          <Balloon >{this.props.cardProps.text}</Balloon>
+        </PixiHtmlContainer>
       </PixiContainer> 
       </>
     );
