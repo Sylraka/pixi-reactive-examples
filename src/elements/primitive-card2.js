@@ -38,12 +38,12 @@ class PrimitiveCard extends React.Component {
     console.log('primitive-card2 updated!');
   }
 
-  
+
   render() {
     return (
       <>
-      <PixiGraphics  x={this.props.cardProps.x} y={this.props.cardProps.y} onClick={printProps(this.props.cardProps)} CursorType={CursorType.Help}>
-        <PixiHtmlContainer  >
+      <PixiGraphics  x={this.props.cardProps.x} y={this.props.cardProps.y} onClick={() => printProps(this.props.cardProps)} CursorType={CursorType.Help}>
+        <PixiHtmlContainer>
           <Balloon >{this.props.cardProps.text}</Balloon>
         </PixiHtmlContainer>
         <Rectangle x={20} y={20} width={this.props.cardProps.width} height={200} borderRadius={10}>
