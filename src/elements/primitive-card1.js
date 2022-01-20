@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   PixiContainer,
   PixiSprite,
@@ -27,28 +27,30 @@ const Balloon = styled.div`
 
 
 
-class PrimitiveCard extends React.Component {
 
+const PrimitiveCard = (props) => {
 
-  componentDidUpdate() {
+  useEffect(() => {
     console.log('primitive-card1 updated!');
-  }
+  });
+
+  const [area, setArea] = useState({
+    x: 200, y: 200, width: 200, height: 200
+  });
 
 
+  return (
+    <>
+      <PixiContainer x={props.cardProps.x} y={props.cardProps.y}   >
+        <PixiSprite texture={'ship'} alignY={0.5} alignX={0.5} hitArea={area} cursor={CursorType.Help} onClick={() => printProps(this.props.cardProps)}
+          buttonMode={true} interactive={true} />
+        <PixiHtmlContainer  >
+          <Balloon >{props.cardProps.text}</Balloon>
+        </PixiHtmlContainer>
+      </PixiContainer>
+    </>
+  );
 
-  render() {
-    return (
-      <>
-        <PixiContainer x={this.props.cardProps.x} y={this.props.cardProps.y}   >
-          <PixiSprite texture={'ship'} alignY={0.5} alignX={0.5} cursor={CursorType.Help} onClick={() => printProps(this.props.cardProps)}
-            buttonMode={true} interactive={true} />
-          <PixiHtmlContainer  >
-            <Balloon >{this.props.cardProps.text}</Balloon>
-          </PixiHtmlContainer>
-        </PixiContainer>
-      </>
-    );
-  }
 }
 
 const printProps = (props) => {

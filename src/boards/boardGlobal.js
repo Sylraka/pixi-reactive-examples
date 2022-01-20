@@ -89,7 +89,7 @@ const BoardGlobal = () => {
                 <PixiCanvas textures={textures}>
                     <PixiTilingSprite texture={'tile'} tileScaleX={0.4} tileScaleY={0.4} />
                     <PixiSprite texture={'ship'} alignY={0.5} alignX={0.5}
-                        cursor={CursorType.Help}
+                        cursor={CursorType.Wait}
                         buttonMode={true} interactive={true} onClick={changeCardProps} >
                         <PixiHtmlContainer >
                             <Balloon >{'click here to change the props'}</Balloon>

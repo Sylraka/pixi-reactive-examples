@@ -1,4 +1,4 @@
-import React, { useCallback, useReducer } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from 'prop-types';
 import {
   PixiHtmlContainer,
@@ -32,21 +32,22 @@ const Balloon = styled.div`
 
 
 
-class PrimitiveCard extends React.Component {
+const PrimitiveCard = (props) => {
 
-  componentDidUpdate() {
+  useEffect(() => {
     console.log('primitive-card2 updated!');
-  }
+  });
 
 
-  render() {
+
+
     return (
       <>
-      <PixiGraphics  x={this.props.cardProps.x} y={this.props.cardProps.y} onClick={() => printProps(this.props.cardProps)} CursorType={CursorType.Help}>
+      <PixiGraphics  x={props.cardProps.x} y={props.cardProps.y} buttonMode={true} interactive={true} onClick={() => printProps(props.cardProps)} CursorType={CursorType.Wait}>
         <PixiHtmlContainer>
-          <Balloon >{this.props.cardProps.text}</Balloon>
+          <Balloon >{props.cardProps.text}</Balloon>
         </PixiHtmlContainer>
-        <Rectangle x={20} y={20} width={this.props.cardProps.width} height={200} borderRadius={10}>
+        <Rectangle x={20} y={20} width={props.cardProps.width} height={200} borderRadius={10}>
           <FillStyle color={0x444444} alpha={0.75} />
         </Rectangle>
 
@@ -54,7 +55,7 @@ class PrimitiveCard extends React.Component {
       </>
     );
   }
-}
+
 
 const printProps = (props) => {
   console.log('you clicked printProps2! Your props:');
