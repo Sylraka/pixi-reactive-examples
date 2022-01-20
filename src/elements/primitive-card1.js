@@ -35,14 +35,14 @@ const PrimitiveCard = (props) => {
   });
 
   const [area, setArea] = useState({
-    x: 200, y: 200, width: 200, height: 200
+    x: 0, y: 0, width: 200, height: 200
   });
 
 
   return (
     <>
       <PixiContainer x={props.cardProps.x} y={props.cardProps.y}   >
-        <PixiSprite texture={'ship'} alignY={0.5} alignX={0.5} hitArea={area} cursor={CursorType.Help} onClick={() => printProps(this.props.cardProps)}
+        <PixiSprite texture={'ship'} alignY={0.5} alignX={0.5}  cursor={CursorType.Help} hitArea={area} onClick={() => printProps(props.cardProps)}
           buttonMode={true} interactive={true} />
         <PixiHtmlContainer  >
           <Balloon >{props.cardProps.text}</Balloon>
